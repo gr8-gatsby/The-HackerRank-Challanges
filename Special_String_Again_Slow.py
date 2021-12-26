@@ -1,0 +1,24 @@
+#this is the 'no fast enough' version
+from collections import Counter
+
+def substrCount(s):
+    count = 0
+    for i in range(len(s)):
+        print('\ni=', i)
+        for j in range(i, len(s)):
+            print('j=', j)
+            if len(Counter(s[i:j+1])) == 1:
+                print(s[i:j+1], '1')
+                count += 1
+            elif len(Counter(s[i:j+1])) == 2 and len(s[i:j+1]) % 2 == 1 and s[(i+j) // 2] != s[i] and s[(i+j) // 2] != s[j]:
+                print(s[i:j + 1], '2')
+                print(s[i], s[(i+j) // 2], s[j])
+                count += 1
+
+    return count
+
+a = 'mnonopoo'
+print(substrCount(a))
+
+#
+#
